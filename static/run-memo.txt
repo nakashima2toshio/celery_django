@@ -1,0 +1,18 @@
+# celery -A flower --broker=redis://localhost:6379  --port=5555
+
+# ■djangoアプリケーションの実行
+# $python manage.py makemigrations # migrationファイルを作成（必要なら
+# $python manage.py migrate # migrate実行
+
+
+# $ python manage.py runserver # アプリケーション実行
+# $ redis-server  # ■redis立ち上げ
+# $ celery -A celery_django worker -l info  # ■celery立ち上げ
+
+
+# manage.pyがあるディレクトリにcdして以下コマンドを実行
+# $celery -A celery_django worker --concurrency=1 -l info
+
+# フロントからタスクが発生⇒
+# RedisがそのタスクをCeleryに渡す⇒
+# Celeryがタスクを実行
